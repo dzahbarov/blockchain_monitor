@@ -1,0 +1,12 @@
+connection_settings:
+  alchemy_url: 'https://eth-mainnet.g.alchemy.com/v2/pFkXh7UYPlQp0VVJxx4evpBBxRR2U4Er'
+currency_pairs:
+  - ETH/USD:
+      oracles_addresses:
+        - '0x37bC7498f4FF12C19678ee8fE19d713b87F6a9e6'
+  - LINK/ETH:
+      oracles_addresses:
+        - '0xbba12740DE905707251525477bAD74985DeC46D2'
+  - USDT/ETH:
+      oracles_addresses:
+        - '0x549aE844Ab6B4a6Eb466F98dFFbc1FC9224e316d'
