@@ -49,11 +49,13 @@ class BlockchainMonitor:
 
     @staticmethod
     def __handle_event(event, filter_wrapper):
-        filter_wrapper.logger.info("Price changes in pair {}. Oracle address: {}. Current price: {}, block number: {}"
-                                   .format(filter_wrapper.pair_name,
-                                           filter_wrapper.oracle_address,
-                                           event.args.current,
-                                           event.blockNumber))
+        logger = filter_wrapper.logger
+        logger.info("Price changes in pair {}. Oracle address: {}. Current price: {}, block number: {}, tx hash: {}"
+                    .format(filter_wrapper.pair_name,
+                            filter_wrapper.oracle_address,
+                            event.args.current,
+                            event.blockNumber,
+                            event.transactionHash.hex()))
 
     async def __monitor(self, filter_wrapper, poll_interval):
         filter_wrapper.logger.info("Start monitor pair {}. Oracle address: {}".format(

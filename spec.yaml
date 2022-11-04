@@ -1,5 +1,5 @@
 connection_settings:
-  alchemy_url: 'https://eth-mainnet.g.alchemy.com/v2/pFkXh7UYPlQp0VVJxx4evpBBxRR2U4Er'
+  alchemy_url: '<YOUR URL>'
 currency_pairs:
   - ETH/USD:
       oracles_addresses:
