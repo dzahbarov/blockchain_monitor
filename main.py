@@ -31,13 +31,6 @@ class BlockchainMonitor:
 
         w3 = Web3(Web3.HTTPProvider(spec['connection_settings']['alchemy_url']))
 
-        # logger = logging.getLogger("test")
-        # logger.info("Price changes in pair {}. Oracle address: {}. Current price: {}, block number: {}"
-        #             .format(1,
-        #                     2,
-        #                     3,
-        #                     4))
-
         self.filters = []
         pair_name_to_logger = {}
 
@@ -56,16 +49,11 @@ class BlockchainMonitor:
 
     @staticmethod
     def __handle_event(event, filter_wrapper):
-        print("mehh")
-        print("event args", event.args)
-        print("current", event.args.current)
-        print("block", event.args.blockNumber)
-        # filter_wrapper.logger.info("test log")
-        # filter_wrapper.logger.info("Price changes in pair {}. Oracle address: {}. Current price: {}, block number: {}"
-        #                            .format(filter_wrapper.pair_name,
-        #                                    filter_wrapper.oracle_address,
-        #                                    event.args.current,
-        #                                    event.args.blockNumber))
+        filter_wrapper.logger.info("Price changes in pair {}. Oracle address: {}. Current price: {}, block number: {}"
+                                   .format(filter_wrapper.pair_name,
+                                           filter_wrapper.oracle_address,
+                                           event.args.current,
+                                           event.blockNumber))
 
     async def __monitor(self, filter_wrapper, poll_interval):
         filter_wrapper.logger.info("Start monitor pair {}. Oracle address: {}".format(
@@ -86,5 +74,4 @@ class BlockchainMonitor:
 
 
 if __name__ == "__main__":
-    # BlockchainMonitor()
     BlockchainMonitor().monitor()
